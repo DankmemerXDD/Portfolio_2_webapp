@@ -21,7 +21,7 @@ export default function Projects({ projects, removeProject }: ProjectsProps) {
   return (
     <>
       {projects.length === 0 ? (
-        <p>Ingen prosjekter funnet</p>
+        <p>No projects found</p>
       ) : (
         <>
           <h3>Total projects per category</h3>
@@ -40,7 +40,10 @@ export default function Projects({ projects, removeProject }: ProjectsProps) {
                 <p>{project.description}</p>
                 <small>Category: {project.category}</small><br />
                 <small>Date: {new Date(project.createdAt).toLocaleDateString()}</small>
-                <button onClick={() => removeProject(project.id)}>Remove project</button>
+                <button 
+                className="remove-project-button"
+                onClick={() => removeProject(project.id)}>Remove project
+                </button>
               </li>
             ))}
           </ul>

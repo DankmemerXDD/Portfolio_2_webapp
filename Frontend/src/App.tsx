@@ -8,7 +8,7 @@ import CreateProject from './Components/CreateProject';
 type Project = {
   id: number;
   title: string;
-  description: string; // Inkluder beskrivelsen
+  description: string;
   createdAt: string;
   category: string;
 };
@@ -23,7 +23,6 @@ function App() {
 
   const [projects, setProjects] = useState<Project[]>([]);
 
-  // Hent prosjektene fra backend ved lasting
   useEffect(() => {
     const fetchProjects = async () => {
       const response = await fetch('http://localhost:3999/projects');
@@ -34,7 +33,6 @@ function App() {
     fetchProjects();
   }, []);
 
-  // Funksjon for å legge til nytt prosjekt med tittel, kategori og beskrivelse
   const addProject = async (newProject: { title: string; category: string; description: string }) => {
     const response = await fetch('http://localhost:3999/projects', {
       method: 'POST',
@@ -46,11 +44,10 @@ function App() {
 
     if (response.ok) {
       const addedProject = await response.json();
-      setProjects([...projects, addedProject]); // Oppdater listen med nytt prosjekt
+      setProjects([...projects, addedProject]);
     }
   };
 
-  // Funksjon for å fjerne et prosjekt
   const removeProject = async (id: number) => {
     await fetch(`http://localhost:3999/projects/${id}`, {
       method: 'DELETE',

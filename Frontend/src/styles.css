@@ -98,6 +98,24 @@ form button:hover {
   background-color: #0056b3;
 }
 
+.remove-experience-button{
+  background-color: #FF4136;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-project-button{
+  background-color: #FF4136;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 100px;
+}
 
 pre {
   background-color: #f4f4f4;

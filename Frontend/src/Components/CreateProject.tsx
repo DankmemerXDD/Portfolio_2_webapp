@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type CreateProjectProps = {
   addProject: (project: { title: string; category: string; description: string }) => void;
@@ -7,7 +7,7 @@ type CreateProjectProps = {
 export default function CreateProject({ addProject }: CreateProjectProps) {
   const [projectTitle, setProjectTitle] = useState('');
   const [category, setCategory] = useState('Web');
-  const [description, setDescription] = useState(''); // Nytt felt for beskrivelse
+  const [description, setDescription] = useState(''); 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,10 +17,8 @@ export default function CreateProject({ addProject }: CreateProjectProps) {
       return;
     }
 
-    // Sender title, category og description til addProject-funksjonen
     addProject({ title: projectTitle, category, description });
 
-    // Tilbakestiller feltene etter innsending
     setProjectTitle('');
     setCategory('Web');
     setDescription('');
@@ -47,9 +45,10 @@ export default function CreateProject({ addProject }: CreateProjectProps) {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="Web">Web Development</option>
-            <option value="Mobile">Mobile Development</option>
-            <option value="Design">Design</option>
+            <option value="">Select a category</option>
+            <option value="Web Developement">Web Development</option>
+            <option value="Mobile Developement">Mobile Development</option>
+            <option value="UI/UX Design">UI/UX Design</option>
           </select>
         </div>
         <div>

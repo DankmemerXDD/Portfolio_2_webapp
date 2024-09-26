@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Experience from './Experience';
 
 type ExperienceData = {
@@ -36,7 +36,7 @@ export default function Experiences() {
   return (
     <>
       {experiences.length === 0 ? (
-        <p>Ingen erfaringer</p>
+        <p>No experiences</p>
       ) : (
         experiences.map((experience, index) => (
           <div key={index}>
@@ -44,7 +44,11 @@ export default function Experiences() {
               title={experience.title}
               description={experience.description}
             />
-            <button onClick={() => removeExperience(index)}>Remove experience</button>
+            
+            <button
+             className="remove-experience-button"
+             onClick={() => removeExperience(index)}>Remove experience
+             </button>
           </div>
         ))
       )}
